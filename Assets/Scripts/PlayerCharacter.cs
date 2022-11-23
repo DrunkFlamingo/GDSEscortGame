@@ -28,6 +28,9 @@ public class PlayerCharacter : MonoBehaviour
 
     private int numFollowers = 0;
 
+    [SerializeField] private int healthMax = 3;
+    private int health = 3;
+
     // Update is called once per frame
     void Update()
     {
@@ -39,6 +42,7 @@ public class PlayerCharacter : MonoBehaviour
     void Awake() {
         lastFollowPosition = transform.position;
         GameObject.Find("GameOverCanvas").GetComponent<Canvas>().enabled = false;
+        health = healthMax;
     }
 
     (bool, bool, bool, bool) Face(bool isUpPressed, bool isDownPressed, bool isLeftPressed, bool isRightPressed) {
@@ -183,11 +187,19 @@ public class PlayerCharacter : MonoBehaviour
         }
     }
 
+    public void GotHit() {
+        health--;
+        if (health <= 0) {
+            GameOver();
+        }
+    }
+
 
     void GameOver() {
         Debug.Log("Game Over");
         GameObject.Find("GameOverCanvas").GetComponent<Canvas>().enabled = true;
         GameObject.Find("Background").GetComponent<SpriteRenderer>().enabled = false;
+        GameObject.Find("UICanvas").GetComponent<Canvas>().enabled = false;
 
         StartCoroutine(GameOverCoroutine());
     }
@@ -199,5 +211,9 @@ public class PlayerCharacter : MonoBehaviour
         while (!asyncLoad.isDone) {
             yield return null;
         }
+    }
+
+    void OnGUI() {
+        GameObject.Find("HealthMeter").GetComponent<TMPro.TextMeshProUGUI>().text = "Health: " + health;
     }
 }

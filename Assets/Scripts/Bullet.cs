@@ -20,7 +20,10 @@ public class Bullet : MonoBehaviour
             GameObject.Find("Player").GetComponent<PlayerCharacter>().DeadChildren(collision.gameObject);
             Destroy(collision.gameObject);
         }
-        
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerCharacter>().GotHit();
+        }
     }
     //delayed to give the other object time to react to the collision
     IEnumerator DestroyBullet()

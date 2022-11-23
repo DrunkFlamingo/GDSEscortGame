@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     private float PatrolDistance = 3.5f;
 
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private GameObject player;
+    private GameObject player;
     private int lastFireTime = 0;
     public int fireRate = 30;
     private float bulletSpeed = 3f;
@@ -66,6 +66,7 @@ public class Enemy : MonoBehaviour
     void Awake() {
         movementFromPosition = transform.position;
         facingZ = transform.rotation.eulerAngles.z;
+        player = GameObject.Find("Player");
     }
 
     bool VisionCheck() {

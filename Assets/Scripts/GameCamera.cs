@@ -24,6 +24,7 @@ public class GameCamera : MonoBehaviour
     {
         //follow the player on Y axis
         transform.position = new Vector3(transform.position.x, Mathf.Min(0, player.transform.position.y), transform.position.z);
+        GameObject.Find("HelpText").GetComponent<TMPro.TextMeshProUGUI>().enabled = player.transform.position.y > 0;
         
     }
 }
