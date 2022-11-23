@@ -8,21 +8,21 @@ public class Enemy : MonoBehaviour
     private bool isAttacking = false;
     private bool isStrafingVertical = false;
     
-    private float moveSpeed = 1f;
-    private float visionWidth = 3f;
-    private float visionRange = 8f;
+    [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private float visionWidth = 3f;
+    [SerializeField] private float visionRange = 8f;
 
-    private float engageDistance = 5f;
-    private float disengageDistance = 7f;
-    private float strafeWidth = 4f;
-    private float PatrolDistance = 3.5f;
+    [SerializeField] private float engageDistance = 5f;
+    [SerializeField] private float disengageDistance = 7f;
+    [SerializeField] private float strafeWidth = 4f;
+    [SerializeField] private float PatrolDistance = 3.5f;
 
     [SerializeField] private GameObject bulletPrefab;
     private GameObject player;
     private int lastFireTime = 0;
-    public int fireRate = 30;
-    private float bulletSpeed = 3f;
-    private float firingWindowRadius = 0.75f;
+    [SerializeField] private int fireRate = 30;
+    [SerializeField] private float bulletSpeed = 3f;
+    [SerializeField] private float firingWindowRadius = 0.75f;
 
     private float facingZ = 0;
     private Vector3 movementFromPosition;

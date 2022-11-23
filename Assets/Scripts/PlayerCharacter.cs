@@ -10,20 +10,20 @@ public class PlayerCharacter : MonoBehaviour
 
     public Quaternion facingDirection = Quaternion.Euler(0, 0, 0);
     private float directionZ = 0;
-    public float moveSpeed = 1f;
-    public float bulletSpeed = 3f;
+    [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private float bulletSpeed = 3f;
     private   bool ignoreLeft = false;
     private  bool ignoreRight = false;
     private  bool ignoreUp = false;
     private   bool ignoreDown = false; 
 
     private int lastFireTime = 0;
-    public int fireRate = 15;
+    [SerializeField] private int fireRate = 15;
 
     private List<Vector3> followPostions = new List<Vector3>();
     private List<GameObject> followers = new List<GameObject>();
     private List<GameObject> childrenNearby = new List<GameObject>();
-    private float followDistance = 0.5f;
+    [SerializeField] private float followDistance = 0.5f;
     private Vector3 lastFollowPosition;
 
     private int numFollowers = 0;

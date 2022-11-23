@@ -189,7 +189,8 @@ MonoBehaviour:
   facingDirection: {x: 0, y: -1, z: 0, w: 1}
   moveSpeed: 1
   bulletSpeed: 3
-  fireRate: 15
+  fireRate: 25
+  followDistance: 0.5
   healthMax: 3
 --- !u!70 &12344785564062203
 CapsuleCollider2D:
